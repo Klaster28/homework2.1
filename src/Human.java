@@ -1,19 +1,37 @@
+import java.time.LocalDate;
+import java.util.Objects;
+
 public class Human {
-    String name;
+    private String name;
 
-    int yearOfBirth;
+    private int yearOfBirth;
 
-    int age;
+    private int age;
 
-    String post;
+    private String post;
 
-    String town;
+    private String town;
 
-    Human(String name, int age, int yearOfBirth, String town, String post) {
-        this.name = name;
-        this.age = age;
+    Human(String name, int age, int yearOfBirth, String town,String post){
+        if (name == null || town.isEmpty() || town.isBlank()) {
+            this.name = " Информация не указана";
+        }else {
+            this.name = name;
+        }
+
+        if (age < 0) {
+            this.age = 0;
+        } else {
+            this.age = age;
+        }
+
         this.yearOfBirth = 2022 - age;
-        this.post = post;
+        if (post == null || town.isEmpty() || town.isBlank()) {
+            this.post = " Информация не указана";
+        }else {
+            this.post = post;
+        }
+
         this.town = town;
 
     }
@@ -27,6 +45,7 @@ public class Human {
     }
 
     public int getYearOfBirth() {
+
         return yearOfBirth;
     }
 
@@ -34,7 +53,29 @@ public class Human {
         return age;
     }
 
+    public void setTown(String town) {
+        if (town == null || town.isEmpty() || town.isBlank()) {
+            this.name = " Информация не указана";
+        }else {
+            this.town = town;
+        }
+
+    }
+
+
+    public void setYearOfBirth(int yearOfBirth) {
+        if (yearOfBirth < 0) {
+            this.yearOfBirth = 0;
+        } else {
+            this.yearOfBirth = yearOfBirth;
+        }
+
+    }
+
     public String getPost() {
         return post;
+
     }
 }
+
+
