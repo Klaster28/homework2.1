@@ -55,7 +55,7 @@ public class Human {
 
     public void setTown(String town) {
         if (town == null || town.isEmpty() || town.isBlank()) {
-            this.name = " Информация не указана";
+            this.town = " Информация не указана";
         }else {
             this.town = town;
         }
